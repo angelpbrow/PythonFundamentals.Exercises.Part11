@@ -1,19 +1,21 @@
 from operator import length_hint
-
+import shapes
 
 class Rectangle:
     def __init__(self, length, width):
         self.length = length
         self.width = width
 
-    def getArea(self, length, width):
-        area = length * width
-        print (area)
+    def getArea(self):
+        return self.length * self.width
 
-    def getPerimeter(self,length, width):
-        perimeter = 2 * (length + width)
-        print (perimeter)
+    def getPerimeter(self):
+        return 2 * (self.length + self.width)
 
+class Square(Rectangle):
+    def getArea(self):
+        return self.length * self.length
 
-Rectangle.getArea(0,4,8)
-Rectangle.getPerimeter(Rectangle,4,3)
+    def getPerimeter(self):
+        return 4 * self.length
+
