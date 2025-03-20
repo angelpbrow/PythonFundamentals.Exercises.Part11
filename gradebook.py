@@ -49,7 +49,9 @@ class CollegeStudent(Student):
 
 
 class Classroom:
-
+    def __init__(self):
+        self.students: Dict[str, Person] = dict()
+        self.instructors: Dict[str, Person] = dict()
 
 
 
