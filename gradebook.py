@@ -24,3 +24,35 @@ class Person:
         pass
 
 
+class Instructor(Person):
+    def __init__(self, first_name, last_nane, dob, alive, instructor_id):
+        super().__init__(first_name, last_nane, dob, alive)
+        "Instructor_".uuid.uuid4()
+
+
+class Student(Person):
+    def __init__(self, first_name, last_nane, dob, alive, student_id):
+        super().__init__(first_name, last_nane, dob, alive)
+        "Student_".uuid.uuid4()
+
+
+class ZipCodeStudent(Student):
+    def __init__(self, first_name, last_nane, dob, alive, student_id):
+        super().__init__(first_name, last_nane, dob, alive)
+        "Student_".uuid.uuid4()
+
+
+class CollegeStudent(Student):
+    def __init__(self, first_name, last_nane, dob, alive, student_id):
+        super().__init__(first_name, last_nane, dob, alive)
+        "Student_".uuid.uuid4()
+
+
+class Classroom:
+
+
+
+
+
+
+

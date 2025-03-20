@@ -10,17 +10,24 @@ class Rectangle:
         print (self.length * self.width)
 
     def getPerimeter(self):
-        return 2 * (self.length + self.width)
+        print (2 * (self.length + self.width))
 
-class Square(shapes.Rectangle):
+class Square(Rectangle):
+    def __init__(self, length):
+            self.length = length
+            self.width = length
+
     def getArea(self):
-        return self.length * self.length
+            print( self.length * self.width)
 
     def getPerimeter(self):
-        return 4 * self.length
+            print (4 * self.length)
 
 
-rect = shapes.Rectangle(2,4)
-rect.getArea()
+#rect = shapes.Rectangle(2,4)
+#rect.getArea()
+
+squ = shapes.Square(2)
+squ.getPerimeter(2)
 
 
