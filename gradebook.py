@@ -1,5 +1,5 @@
 import enum
-from typing import Dict
+import uuid
 
 
 class AliveStatus(enum.Enum):
@@ -11,7 +11,7 @@ class Person:
         self.first_name = first_name
         self.last_name = last_nane
         self.dob = dob
-        self.alive = AliveStatus.alive
+        self.alive = AliveStatus.ALIVE
 
     def update_first_name(self, name):
         self.first_name = name
@@ -29,25 +29,25 @@ class Person:
 class Instructor(Person):
     def __init__(self, first_name, last_nane, dob, AliveStatus):
         super().__init__(first_name, last_nane, dob, AliveStatus)
-        "Instructor_".uuid.uuid4()
+        self.instructor_id = ("Instructor_" + str(uuid.uuid4()))
 
 
 class Student(Person):
-    def __init__(self, first_name, last_nane, dob, alive):
-        super().__init__(first_name, last_nane, dob, alive)
-        "Student_".uuid.uuid4()
+    def __init__(self, first_name, last_nane, dob, AliveStatus):
+        super().__init__(first_name, last_nane, dob, AliveStatus)
+        self.student_id = ("Student_" + str(uuid.uuid4()))
 
 
 class ZipCodeStudent(Student):
-    def __init__(self, first_name, last_nane, dob, alive):
-        super().__init__(first_name, last_nane, dob, alive)
-        "Student_".uuid.uuid4()
+    def __init__(self, first_name, last_nane, dob, AliveStatus):
+        super().__init__(first_name, last_nane, dob, AliveStatus)
+        self.student_id = ("Student_" + str(uuid.uuid4()))
 
 
 class CollegeStudent(Student):
-    def __init__(self, first_name, last_nane, dob, alive):
-        super().__init__(first_name, last_nane, dob, alive)
-        "Student_".uuid.uuid4()
+    def __init__(self, first_name, last_nane, dob, AliveStatus):
+        super().__init__(first_name, last_nane, dob, AliveStatus)
+        self.student_id = ("Student_" + str(uuid.uuid4()))
 
 
 class Classroom:
@@ -56,16 +56,16 @@ class Classroom:
         self.instructors = {}
 
     def add_instructor(self, x):
-        self.instructors[x.instructor.id] = (x.first_name, x.last_name, x.dob, x.alive)
+        self.instructors[x.instructor_id] = (x.first_name, x.last_name, x.dob, x.alive)
 
-    def remove_instructor(self, x):
-        del self.instructors[x]
+    def remove_instructor(self, z):
+        del self.instructors[z]
 
     def add_student(self, y):
-        self.students[y.student.id] = (y.first_name, y.last_name, y.dob, y.alive)
+        self.students[y.student_id] = (y.first_name, y.last_name, y.dob, y.alive)
 
-    def remove_student(self, y):
-        del self.students[y]
+    def remove_student(self, z):
+        del self.students[z]
 
 
     def print_instructors(self):
@@ -77,11 +77,17 @@ class Classroom:
 
 
 
+angel = Instructor("angel", "brown","1/2/2023", AliveStatus.ALIVE)
+jim = Instructor("jim","heller","3/12/2019", AliveStatus.ALIVE)
+print(angel.instructor_id)
+print(jim.instructor_id)
 
 zipcode1 = Classroom()
-angel = Instructor("angel", "brown","1/2/2023", 0)
+zipcode1.add_instructor(jim)
+zipcode1.add_instructor(angel)
+zipcode1.print_instructors()
 
-Classroom.print_instructors()
+
 
 
 
